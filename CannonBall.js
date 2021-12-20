@@ -13,7 +13,19 @@ class CannonBall {
         //Agregar cuerpo de la bala al mundo
         World.add(world,this.body);
     }
+    
     //Función para remover la bala 
+    remove(index){
+        //Función para quitar la velocidad a la bala 
+        Matter.Body.setVelocity(this.body, {x:0, y:0});
+        //Función para ejecutar código después de 2 seg
+        setTimeout( () => {
+        //Remover cuerpo del barco del mundo 
+        Matter.World.remove(world,this.body);
+        //Borrar barco de la matriz 
+        delete balls[index];
+        }, 1000 /*Tiempo en milisegundos*/ );
+    } 
     
     //Función para disparar la bala  
     shoot(){
