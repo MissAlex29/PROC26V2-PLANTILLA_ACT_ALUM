@@ -17,7 +17,17 @@ class Boat {
     //Abregar cuerpo al mundo 
     World.add(world, this.body);
     }
+    
     //Función para remover el barco 
+    remove(index){
+        //Función para ejecutar código después de 2 seg
+        setTimeout( () => {
+        //Remover cuerpo del barco del mundo 
+        Matter.World.remove(world,boats[index].body);
+        //Borrar barco de la matriz 
+        delete boats[index];
+        }, 2000 /*Tiempo en milisegundos*/ );
+    }
     
     //Función para mostrar cuerpo 
     display(){
